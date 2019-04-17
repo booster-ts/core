@@ -1,0 +1,40 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "only-arrow-functions": true,
+        "indent": [
+            true,
+            "spaces",
+            4
+        ],
+        "max-line-length": [
+            true,
+            {
+                "limit": 100,
+                "ignore-pattern": "^import |^export {(.*?)}|\/\/"
+            }
+        ],
+        "prefer-const": true,
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ],
+        "eofline": true,
+        "array-type": [true, "generic"],
+        "quotemark": false,
+        "no-string-literal": false,
+        "object-literal-sort-keys": false,
+        "object-literal-shorthand": true,
+        "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+        "curly": [true, "as-needed"]
+    },
+    "rulesDirectory": []
+}
