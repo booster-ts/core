@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strict": false,
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "types": [
+      "jest"
+    ]
+  },
+  "include": [
+    "./src/"
+  ],
+  "exclude": [
+    "./tests",
+    "./src/mocks",
+    "node_modules"
+  ]
+}
