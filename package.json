@@ -34,5 +34,8 @@
     "jest": "24.5.0",
     "ts-jest": "23.10.5",
     "tslint": "^5.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
