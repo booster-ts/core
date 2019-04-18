@@ -1,0 +1,38 @@
+{
+  "name": "@booster-ts/core",
+  "version": "0.0.1",
+  "description": "Core Booster DI Library",
+  "main": "dist/lib.js",
+  "scripts": {
+    "test": "jest -c ./tests/config.js",
+    "build": "tsc",
+    "lint": "tslint --project ./tsconfig.json -c ./tslint.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/booster-ts/core.git"
+  },
+  "keywords": [
+    "DI",
+    "Core",
+    "Booster",
+    "Dependecy",
+    "Injection"
+  ],
+  "author": "ImOverlord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/booster-ts/core/issues"
+  },
+  "homepage": "https://github.com/booster-ts/core#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^3.4.3"
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.14",
+    "jest": "24.5.0",
+    "ts-jest": "23.10.5",
+    "tslint": "^5.16.0"
+  }
+}
