@@ -1,8 +1,8 @@
 {
   "name": "@booster-ts/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core Booster DI Library",
-  "main": "dist/lib.js",
+  "main": "dist/core.js",
   "scripts": {
     "test": "jest -c ./tests/config.js",
     "build": "tsc",
