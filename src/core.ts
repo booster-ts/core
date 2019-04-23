@@ -6,7 +6,7 @@ interface IContainer {
     name: string;
     class: any;
     data?: any;
-    target: any;
+    target: IType<any>;
 }
 
 /**
@@ -50,6 +50,7 @@ export class Injector {
         const newClass: IContainer = {
             class: new target(...inject),
             name: className,
+            data: Reflect.getMetadata('data', target),
             target
         };
         this.container.map((container) => {
@@ -117,6 +118,7 @@ export class Injector {
      * getByValue
      * @description Gets all class with a specific value to the key attached as metadata
      * @param keyName Key to find on Target
+     * @param value to find on key
      */
     public getByValue<T>(keyName: string, value: any): Array<T> {
         const classArray: Array<T> = [];
@@ -128,6 +130,45 @@ export class Injector {
                 classArray.push(this.resolve(container.target));
         });
         return classArray;
+    }
+
+    /**
+     * getContainerByKey
+     * @description Returns Container with certain key
+     * @param keyName to find on target
+     */
+    public getContainerByKey(keyName: string): Array<IContainer> {
+        const containerArray: Array<IContainer> = [];
+        this.container.forEach((container: IContainer) => {
+            const data = Reflect.getMetadata('data', container.target);
+            if (data === undefined)
+                return;
+            if (data[keyName] !== undefined) {
+                this.resolve(container.target);
+                containerArray.push(container);
+            }
+        });
+        return containerArray;
+    }
+
+    /**
+     * getByValue
+     * @description Gets all class with a specific value to the key attached as metadata
+     * @param keyName Key to find on Target
+     * @param value to find on key
+     */
+    public getContainerByValue(keyName: string, value: any): Array<IContainer> {
+        const containerArray: Array<IContainer> = [];
+        this.container.forEach((container: IContainer) => {
+            const data = Reflect.getMetadata('data', container.target);
+            if (data === undefined)
+                return;
+            if (data[keyName] === value) {
+                this.resolve(container.target);
+                containerArray.push(container);
+            }
+        });
+        return containerArray;
     }
 
     /**
@@ -149,6 +190,7 @@ export class Injector {
         const newClass: IContainer = {
             class: new target(...inject),
             name: className,
+            data: Reflect.getMetadata('data', target),
             target
         };
         this.container.push(newClass);

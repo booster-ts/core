@@ -126,4 +126,40 @@ describe("Basic Injection Test", () => {
 
     });
 
+    describe("getContainerByKey", () => {
+
+        beforeEach(() => {
+            injector = new Injector();
+        });
+
+        it("Should retreive class with a certain key as metadata", () => {
+            injector.register("DependencyF", DependencyF);
+            injector.register("DependencyA", DependencyA);
+
+            const arr = injector.getContainerByKey('type');
+            expect(arr.length).toBe(1);
+            expect(arr[0].target).toBe(DependencyF);
+            expect(arr[0].data.type).toBe("plugin");
+        });
+
+    });
+
+    describe("getContainerByValue", () => {
+
+        beforeEach(() => {
+            injector = new Injector();
+        });
+
+        it("Should retreive class with a certain key as metadata", () => {
+            injector.register("DependencyF", DependencyF);
+            injector.register("DependencyA", DependencyA);
+
+            const arr = injector.getContainerByValue('type', "plugin");
+            expect(arr.length).toBe(1);
+            expect(arr[0].target).toBe(DependencyF);
+            expect(arr[0].data.type).toBe("plugin");
+        });
+
+    });
+
 });
