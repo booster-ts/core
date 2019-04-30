@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Core Booster DI Library",
   "main": "dist/core.js",
+  "types": "dist/core.d.ts",
   "scripts": {
     "test": "jest -c ./tests/config.js",
     "build": "tsc",
@@ -27,12 +28,13 @@
   },
   "homepage": "https://github.com/booster-ts/core#readme",
   "dependencies": {
+    "@types/node": "^11.13.8",
     "reflect-metadata": "^0.1.13",
     "typescript": "^3.4.3"
   },
   "devDependencies": {
     "@types/jest": "23.3.14",
-    "jest": "24.5.0",
+    "jest": "^23.0.0",
     "ts-jest": "23.10.5",
     "tslint": "^5.16.0"
   },

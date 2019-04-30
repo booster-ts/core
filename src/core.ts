@@ -1,4 +1,4 @@
-import "reflect-metadata";
+require("reflect-metadata");
 
 type IType<T> = new(...args: Array<any>) => T;
 
