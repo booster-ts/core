@@ -1,12 +1,13 @@
 {
   "name": "@booster-ts/core",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Core Booster DI Library",
-  "main": "dist/lib.js",
+  "main": "dist/core.js",
   "scripts": {
     "test": "jest -c ./tests/config.js",
     "build": "tsc",
-    "lint": "tslint --project ./tsconfig.json -c ./tslint.json"
+    "lint": "tslint --project ./tsconfig.json -c ./tslint.json",
+    "check": "npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,8 @@
     "jest": "24.5.0",
     "ts-jest": "23.10.5",
     "tslint": "^5.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
