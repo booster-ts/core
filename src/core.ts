@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-var-requires
 require("reflect-metadata");
 
 type IType<T> = new(...args: Array<any>) => T;
