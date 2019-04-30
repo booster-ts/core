@@ -152,7 +152,7 @@ export class Injector {
     }
 
     /**
-     * getByValue
+     * getContainerByValue
      * @description Gets all class with a specific value to the key attached as metadata
      * @param keyName Key to find on Target
      * @param value to find on key
