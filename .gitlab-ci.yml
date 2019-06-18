@@ -11,10 +11,6 @@ test:lint:
   script:
     - npm run lint
 
-test:vulnerabilities:
-  script:
-    - npm run vuln-test
-
 test:node:6:
   script:
     - npm install -g codecov
@@ -23,12 +19,6 @@ test:node:6:
 
 test:node:7:
   image: node:7
-  script:
-    - npm run build
-    - npm test
-
-test:node:4:
-  image: node:4
   script:
     - npm run build
     - npm test
