@@ -3,3 +3,4 @@ node_modules/
 coverage/
 tslint.json
 tsconfig.json
+.npmrc

@@ -12,22 +12,16 @@ jobs:
         - npm run test
         - npm run build
     - stage: npm beta release
-      script: npm run build
-      deploy:
-        provider: npm
-        email: '$NPM_EMAIL'
-        api_key: '$NPM_TOKEN'
-        skip_cleanup: true
-        tag: beta
-        on:
-          branch: edge
+      branches:
+        only:
+          - master
+      script:
+        - npm run build
+        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - npm publish --tag beta
     - stage: npm release
-      script: npm run build
-      deploy:
-        provider: npm
-        email: '$NPM_EMAIL'
-        api_key: '$NPM_TOKEN'
-        skip_cleanup: true
-        on:
-          branch: master
-          tags: true
+      if: tag IS present
+      script:
+        - npm run build
+        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - node ./scripts/release.js
