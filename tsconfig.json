@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
+    "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strict": false,
     "outDir": "dist",
     "sourceMap": true,
     "declaration": true,
+    "esModuleInterop": true,
     "types": [
       "jest",
-      "reflect-metadata"
+      "reflect-metadata",
+      "node"
     ]
   },
   "include": [
