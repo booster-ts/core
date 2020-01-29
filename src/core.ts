@@ -3,11 +3,11 @@ require("reflect-metadata");
 
 type IType<T> = new(...args: Array<any>) => T;
 
-interface IContainer {
+interface IContainer<T = any, U = any> {
     name: string;
-    class: any;
-    data?: any;
-    target: IType<any>;
+    class: T;
+    data?: U;
+    target: IType<T>;
 }
 
 /**
@@ -138,8 +138,8 @@ export class Injector {
      * @description Returns Container with certain key
      * @param keyName to find on target
      */
-    public getContainerByKey(keyName: string): Array<IContainer> {
-        const containerArray: Array<IContainer> = [];
+    public getContainerByKey<T = any, U = any>(keyName: string): Array<IContainer<T, U>> {
+        const containerArray: Array<IContainer<T, U>> = [];
         this.container.forEach((container: IContainer) => {
             const data = Reflect.getMetadata('data', container.target);
             if (data === undefined)
@@ -158,7 +158,7 @@ export class Injector {
      * @param keyName Key to find on Target
      * @param value to find on key
      */
-    public getContainerByValue(keyName: string, value: any): Array<IContainer> {
+    public getContainerByValue<T = any, U = any>(keyName: string, value: any): Array<IContainer<T, U>> {
         const containerArray: Array<IContainer> = [];
         this.container.forEach((container: IContainer) => {
             const data = Reflect.getMetadata('data', container.target);

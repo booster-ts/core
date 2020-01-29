@@ -154,7 +154,7 @@ describe("Basic Injection Test", () => {
             injector.register("DependencyF", DependencyF);
             injector.register("DependencyA", DependencyA);
 
-            const arr = injector.getContainerByValue('type', "plugin");
+            const arr = injector.getContainerByValue<DependencyF, {type: string}>('type', "plugin");
             expect(arr.length).toBe(1);
             expect(arr[0].target).toBe(DependencyF);
             expect(arr[0].data.type).toBe("plugin");
